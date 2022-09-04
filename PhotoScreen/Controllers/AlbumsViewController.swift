@@ -1,14 +1,13 @@
 //
-//  ViewController.swift
+//  AlbumsViewController.swift
 //  PhotoScreen
 //
-//  Created by Aleksandr Pimanov on 02.09.2022.
+//  Created by Aleksandr Pimanov on 04.09.2022.
 //
 
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController {
+class AlbumsViewController: UIViewController {
     
     private lazy var photoScreenCollectionView: UICollectionView = {
         let layout = createLayout()
@@ -25,7 +24,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "Альбомы"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         addSubviews()
         setCollectionViewConstraints()
     }
@@ -62,7 +60,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         6
