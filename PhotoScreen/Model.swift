@@ -12,6 +12,7 @@ struct ItemCell {
     var title: String?
     var subtitle: String?
     var additionalImage: String?
+    var additionalElements: String?
 }
 
 struct Section {
@@ -30,9 +31,19 @@ struct Section {
             Section(item: [ItemCell(image: "Image", title: "Недавние", subtitle: "127"),
                            ItemCell(image: "Image", title: "Недавние", subtitle: "342")]),
 
-            Section(item: [ItemCell(image: "Image", title: "Недавние", subtitle: "127"),
-                           ItemCell(image: "Image", title: "Недавние", subtitle: "400"),
-                           ItemCell(image: "Image", title: "Недавние", subtitle: "342")])
+            Section(item: [ItemCell(image: "video", title: "Видео", subtitle: "127",
+                                    additionalElements: "chevron.forward"),
+                           ItemCell(image: "person.crop.square", title: "Селфи", subtitle: "400",                       additionalElements:"chevron.forward"),
+                           ItemCell(image: "livephoto", title: "Лайф-фото", subtitle: "342",
+                                    additionalElements: "chevron.forward"),
+                           ItemCell(image: "person.crop.square", title: "Селфи", subtitle: "400",
+                                    additionalElements: "chevron.forward"),
+                           ItemCell(image: "person.crop.square", title: "Селфи", subtitle: "400",
+                                    additionalElements: "chevron.forward"),
+                           ItemCell(image: "person.crop.square", title: "Селфи", subtitle: "400",
+                                    additionalElements: "chevron.forward"),
+                           ItemCell(image: "person.crop.square", title: "Селфи", subtitle: "400",
+                                    additionalElements: "chevron.forward")])
         ]
     }
 }

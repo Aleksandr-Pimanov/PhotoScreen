@@ -38,7 +38,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
                                                                      subFooterLabel],
                                                   axis: .vertical,
                                                   spacing: 1)
-    
+
     func configure(with model: ItemCell) {
         itemImage.image = UIImage(named: model.image ?? "")
         mainFooterLabel.text = model.title
@@ -63,7 +63,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     private func setAlbumStackViewConstraints() {
         albumStackView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(contentView)
-           // make.bottom.equalTo(contentView).offset(-30)
         }
     }
     
