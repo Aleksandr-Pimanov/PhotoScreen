@@ -22,15 +22,23 @@ class PhotoTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func setupBar() {
-            let media = createNavigationContoller(viewContoller: MediaViewController(), itemName: "Медиа", itemImage: "photo.on.rectangle.fill")
-            let memories = createNavigationContoller(viewContoller: MemoriesViewController(), itemName: "Для Вас", itemImage: "heart.text.square.fill")
-            let albums = createNavigationContoller(viewContoller: AlbumsViewController(), itemName: "Альбомы", itemImage: "rectangle.stack.fill")
-            let search = createNavigationContoller(viewContoller: SearchViewController(), itemName: "Поиск", itemImage: "magnifyingglass")
+            let media = createNavigationController(viewContoller: MediaViewController(),
+                                                  itemName: "Медиа",
+                                                  itemImage: "photo.on.rectangle.fill")
+            let memories = createNavigationController(viewContoller: MemoriesViewController(),
+                                                     itemName: "Для Вас",
+                                                     itemImage: "heart.text.square.fill")
+            let albums = createNavigationController(viewContoller: AlbumsViewController(),
+                                                   itemName: "Альбомы",
+                                                   itemImage: "rectangle.stack.fill")
+            let search = createNavigationController(viewContoller: SearchViewController(),
+                                                   itemName: "Поиск",
+                                                   itemImage: "magnifyingglass")
 
             viewControllers = [media, memories, albums, search]
         }
 
-        func createNavigationContoller(viewContoller: UIViewController, itemName: String, itemImage: String) -> UINavigationController {
+        func createNavigationController(viewContoller: UIViewController, itemName: String, itemImage: String) -> UINavigationController {
             let item = UITabBarItem(title: itemName, image: UIImage(systemName: itemImage), selectedImage: UIImage(systemName: itemImage))
             let navigationContoller = UINavigationController(rootViewController: viewContoller)
             navigationContoller.tabBarItem = item
