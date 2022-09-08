@@ -16,17 +16,18 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.layer.cornerRadius = 10
         return image
     }()
     
-    private lazy var mainFooterLabel: UILabel = {
+    private lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.textColor = .label
         return label
     }()
     
-    private lazy var subFooterLabel: UILabel = {
+    private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.textColor = .systemGray
@@ -34,16 +35,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }()
     
     private lazy var albumStackView = UIStackView(arrangedSubviews: [itemImage,
-                                                                     mainFooterLabel,
-                                                                     subFooterLabel],
+                                                                     mainTitleLabel,
+                                                                     subTitleLabel],
                                                   axis: .vertical,
                                                   spacing: 1)
-
-    func configure(with model: ItemCell) {
-        itemImage.image = UIImage(named: model.image ?? "")
-        mainFooterLabel.text = model.title
-        subFooterLabel.text = model.subtitle
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +49,12 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    func configure(with model: ItemCell) {
+        itemImage.image = UIImage(named: model.image ?? "")
+        mainTitleLabel.text = model.title
+        subTitleLabel.text = model.subtitle
     }
     
     private func addSubviews() {
@@ -70,5 +71,12 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         itemImage.snp.makeConstraints { make in
             make.bottom.equalTo(albumStackView).multipliedBy(0.8)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        itemImage.image = nil
+        mainTitleLabel.text = nil
+        subTitleLabel.text = nil
     }
 }
